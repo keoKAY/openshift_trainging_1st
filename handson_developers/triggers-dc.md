@@ -12,4 +12,8 @@ oc new-app \
    https://gitlab.com/practical-openshift/hello-world.git \
    --as-deployment-config \
    --name=triggers-demo
+
+
+export KUBECONFIG=~/.crc/machines/crc/kubeconfig
+
 ```

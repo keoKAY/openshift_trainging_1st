@@ -61,5 +61,16 @@ oc annotate namespace team-a-prod openshift.io/requester=team-a --overwrite
 oc apply -f team-a-quota.yaml
 
 oc scale deploy/quota-deployment --replicas=10
+
+oc delete clusterresourcequota team-a-quota
+oc delete project team-a-dev team-a-test team-a-prod
 ```
 ### 1.3 LimitRange 
+> Detemrine the resources  of pod containers 
+
+```bash 
+oc new-project limit-test
+
+oc apply -f limitrange-demo.yaml
+
+```

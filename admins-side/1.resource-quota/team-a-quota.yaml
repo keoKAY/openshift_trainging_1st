@@ -1,0 +1,13 @@
+apiVersion: quota.openshift.io/v1
+kind: ClusterResourceQuota
+metadata:
+ name: team-a-quota
+spec:
+ quota:
+   hard:
+     pods: "10"
+     requests.cpu: "2"
+     requests.memory: "2Gi"
+ selector:
+   annotations:
+     openshift.io/requester: team-a

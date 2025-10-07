@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: quota-deployment
+ namespace: team-a-test
+spec:
+ replicas: 2
+ selector:
+   matchLabels:
+     app: quota-deployment
+ template:
+   metadata:
+     labels:
+       app: quota-deployment
+   spec:
+     #serviceAccountName: nginx-root
+     containers:
+     - name: nginx-cont
+       image: quay.io/keokay888/earthdx-private
+       resources:
+         limits:
+           memory: "128Mi"
+           cpu: "100m"
+         requests:
+           memory: '64Mi'
+           cpu: "50m"
+       ports:
+       - containerPort: 8080

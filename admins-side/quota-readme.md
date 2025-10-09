@@ -67,10 +67,20 @@ oc delete project team-a-dev team-a-test team-a-prod
 ```
 ### 1.3 LimitRange 
 > Detemrine the resources  of pod containers 
+- max/min resource allocation per pod or container 
 
 ```bash 
 oc new-project limit-test
 
 oc apply -f limitrange-demo.yaml
+oc apply -f pod-test.yaml
+oc apply -f pod-complied.yaml 
+```
+
+### 1.4 Project Templates
+
+```bash 
+o oc adm create-bootstrap-project-template -o yaml > template.yaml
+oc replace -f template.yaml -n openshift-config 
 
 ```

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: quota-deployment
- namespace: limit-test
+
 spec:
  replicas: 2
  selector:
@@ -13,9 +13,12 @@ spec:
      labels:
        app: quota-deployment
    spec:
+     #serviceAccountName: nginx-root
      containers:
      - name: nginx-cont
-       image: quay.io/keokay888/earthdx-private
+       image: bitnami/nginx
+       
+      #image: quay.io/keokay888/earthdx-private
       #  resources:
       #    limits:
       #      memory: "128Mi"
